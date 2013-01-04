@@ -1,0 +1,12 @@
+/*   
+Theme Name: Blue Ox
+Theme URI: http://a7web.com/blue-ox
+Description: A strong, clean starter theme
+Author: Aaron Holbrook
+Author URI: http://aaronjholbrook.com
+Version: 2.0
+*/
+
+@import url("_/stylesheets/css/sass.css");
+@import url("_/stylesheets/css/960.css");
+

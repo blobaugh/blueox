@@ -1,0 +1,56 @@
+@mixin button($base: #eee, $font: #333) {
+	color: $font;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+	padding: 6px 10px 5px;
+	text-decoration: none;
+	@include border-radius(5px);
+	/* Prevent background color leak outs */
+	-webkit-background-clip: padding-box;
+	-moz-background-clip:    padding;
+	background-clip:         padding-box;
+	@include box-shadow(0px 2px 8px 0px rgba(0,0,0,.18));	
+	
+	//$border: hsl(hue($base)+1, saturation($base)-6, lightness($base)-13);
+	$border: darken($base, 10%);
+	$border: adjust-hue($border, 10deg);
+	$border: desaturate($border, 6%);
+	
+	// $top: fadeout(hsl(hue($base), saturation($base)+10, lightness($base)+18), 20%);
+	$top: fade-out($base, .25);
+	$top: saturate($top, 10%);
+	$top: lighten($top, 20%);
+	// $bottom: fadeout(hsl(hue($base), saturation($base)+23, lightness($base)-10), 20%);
+	$bottom: fade-out($base, .20);
+	$bottom: saturate($bottom, 23%);
+	$bottom: darken($bottom, 10%);
+	
+	background-color: darken($base, 10%);
+
+	// important! in order to have a transition on background gradients you need to
+	// have some transparency, as the background gradient won't animate,
+	// only the background color will
+	@include background-image(linear-gradient($top, $bottom));
+	@include transition(.1s);
+
+	border: 1px solid $border;	
+	&:visited {
+		color: $font;
+	}
+	&:hover {
+		background-color: lighten($base, 50%);
+		border-color: lighten($border, 10%);
+		color: mix($font, $base, 80%);
+		@include transition(.1s);
+	}
+	&:active {
+		background-color: darken($base, 30%);
+		border-color: darken($border, 5%);
+		color: mix($font, $base, 70%);
+		@include transition(.05s);
+	}
+}
+
+
+
+
+
