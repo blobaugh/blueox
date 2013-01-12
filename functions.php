@@ -6,14 +6,15 @@ add_theme_support( 'post-thumbnails', array('post', 'page'));
 // add an image size, @name, @width, @height, @hard-crop
 // add_image_size('name', 100, 100, true);
 
-
-// Clean up the <head>
+/**
+ * WP Head Cleaner
+ */
 function removeHeadLinks() {
    	remove_action('wp_head', 'rsd_link');
    	remove_action('wp_head', 'wlwmanifest_link');
+   	remove_action('wp_head', 'wp_generator');
 }
 add_action('init', 'removeHeadLinks');
-remove_action('wp_head', 'wp_generator');
 
 
 /*------------------------------------*\
