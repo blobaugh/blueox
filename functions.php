@@ -16,6 +16,10 @@ function removeHeadLinks() {
 }
 add_action('init', 'removeHeadLinks');
 
+/**
+ * Disable WP clutter/crap
+ */
+define('DISALLOW_FILE_EDIT',true);
 
 /*------------------------------------*\
 	Meta Boxes - using Dimas's wpalchemy
