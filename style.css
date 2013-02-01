@@ -7,6 +7,7 @@ Author URI: http://aaronjholbrook.com
 Version: 2.0
 */
 
+@import url("_/stylesheets/css/reset.css");
 @import url("_/stylesheets/css/sass.css");
 @import url("_/stylesheets/css/960.css");
 
