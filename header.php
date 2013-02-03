@@ -35,7 +35,7 @@
 				</div>
 			</div>
 
-			<div class="nav_menu">
+			<div class="primary_nav_menu">
 				<?php wp_nav_menu( array('theme_location' => 'primary_nav' )); ?>
 			</div>	
 		
