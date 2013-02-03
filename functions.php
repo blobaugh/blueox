@@ -1,10 +1,11 @@
 <?php
-
 add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video'));
 add_theme_support( 'post-thumbnails', array('post', 'page'));
 
+
 // add an image size, @name, @width, @height, @hard-crop
 // add_image_size('name', 100, 100, true);
+
 
 /**
  * WP Head Cleaner
@@ -16,23 +17,25 @@ function removeHeadLinks() {
 }
 add_action('init', 'removeHeadLinks');
 
+
 /**
  * Disable WP clutter/crap
  */
 define('DISALLOW_FILE_EDIT',true);
 
-/*------------------------------------*\
-	Meta Boxes - using Dimas's wpalchemy
-	via: http://www.farinspace.com/wpalchemy-metabox/
-\*------------------------------------*/
+
+/**
+ * Meta Boxes - using Dimas's wpalchemy
+ * via: http://www.farinspace.com/wpalchemy-metabox/
+ */
 // include_once 'metaboxes/setup.php';
 // include_once 'metaboxes/spec.php';
 
 
-/*------------------------------------*\
-	Post 2 Post - Create post relationships
-	via: http://wordpress.org/extend/plugins/posts-to-posts/
-\*------------------------------------*/
+/**
+ * Post 2 Post - Create post relationships
+ * via: http://wordpress.org/extend/plugins/posts-to-posts/
+ */
 // function my_connection_types() {
 // 	if ( !function_exists( 'p2p_register_connection_type' ) )
 // 		return;
@@ -49,9 +52,9 @@ define('DISALLOW_FILE_EDIT',true);
 // add_action( 'init', 'my_connection_types', 100 );
 
 
-/*------------------------------------*\
-	Menus
-\*------------------------------------*/
+/**
+ * Menu Registration
+ */
 register_nav_menus(
 	array( 
 		'primary_nav'	=> 'Primary Navigation',
@@ -61,14 +64,14 @@ register_nav_menus(
 );
 
 
-/*------------------------------------*\
-	Sidebars
-\*------------------------------------*/
+/**
+ * Sidebar Registration
+ */
 if (function_exists('register_sidebar')) {
 	register_sidebar(array(
-		'name' => __('Sidebar Widgets','a7swart' ),
+		'name' => 'Sidebar Widgets',
 		'id'   => 'sidebar-widgets',
-		'description'   => __( 'These are widgets for the sidebar.','a7swart' ),
+		'description'   => 'These are widgets for the sidebar.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
@@ -77,9 +80,9 @@ if (function_exists('register_sidebar')) {
 }
 
 
-/*------------------------------------*\
-	Custom Post Types
-\*------------------------------------*/
+/**
+ * Custom Post Type Registration
+ */
 // add_action( 'init', 'register_cpt_event' );
 
 // function register_cpt_event() {
@@ -124,9 +127,9 @@ if (function_exists('register_sidebar')) {
 // }
 
 
-/*------------------------------------*\
-	Custom Taxonomies
-\*------------------------------------*/
+/**
+ * Custom Taxonomy Registration
+ */
 // register_taxonomy(
 // 	'portfolio-category',
 // 	'portfolio', array(
